@@ -10,7 +10,7 @@ namespace BinarySearchTree.Classes
     {
         private Node leftChild;
         private Node rightChild;
-        public int number;
+        private int number;
 
         public Node()
         {
@@ -38,6 +38,18 @@ namespace BinarySearchTree.Classes
             set
             {
                 this.rightChild = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+            set
+            {
+                this.number = value;
             }
         }
     }
