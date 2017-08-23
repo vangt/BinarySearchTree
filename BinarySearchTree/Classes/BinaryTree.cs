@@ -8,5 +8,6 @@ namespace BinarySearchTree.Classes
 {
     public class BinaryTree
     {
+        public Node rootNode;
     }
 }
