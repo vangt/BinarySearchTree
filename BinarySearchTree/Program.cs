@@ -12,7 +12,7 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
             BinaryTree searchTree = new BinaryTree();
-
+            searchTree.Start();
         }
     }
 }

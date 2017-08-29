@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BinarySearchTree.Classes
@@ -37,7 +39,7 @@ namespace BinarySearchTree.Classes
         public int GetNumbers()
         {
             Random random = new Random();
-            int number = random.Next(10, 100);
+            int number = random.Next(1, 100);
             return number;
         }
 
@@ -50,10 +52,14 @@ namespace BinarySearchTree.Classes
         public void NumberOfAdds()
         {
             Random random = new Random();
-            int number = random.Next(0, 50);
+            int number = random.Next(10, 50);
 
             for(int i = 0; i < number; i++)
             {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+                Thread.Sleep(5);
+                stopWatch.Stop();
                 AddNumbersToList();
             }
         }
@@ -83,24 +89,7 @@ namespace BinarySearchTree.Classes
                 ChooseANumber();
             }
 
-            CheckList(num);
-        }
-
-        public void CheckList(int number)
-        {
-            for(int i = 0; i < numbers.Count; i++)
-            {
-                if(number == numbers[i])
-                {
-                    Console.WriteLine("That number is in there.");
-                    SearchTree(number, rootNode);
-                }
-                else if(number != numbers[Count - 1])
-                {
-                    Console.WriteLine("That number is not in the list.");
-                    ChooseANumber();
-                }
-            }
+            SearchTree(num, rootNode);
         }
 
         public void SearchTree(int number, Node node)
@@ -112,11 +101,27 @@ namespace BinarySearchTree.Classes
             }
             else if(number > node.Number)
             {
-                SearchTree(number, node.RightChild);
+                if (node.RightChild == null)
+                {
+                    Console.WriteLine("That was it, your number is not in the tree.");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    SearchTree(number, node.RightChild);
+                }
             }
             else if(number < node.Number)
             {
-                SearchTree(number, node.LeftChild);
+                if(node.LeftChild == null)
+                {
+                    Console.WriteLine("That was it, your number is not in the tree.");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    SearchTree(number, node.LeftChild);
+                }
             }
         }
 
@@ -166,6 +171,14 @@ namespace BinarySearchTree.Classes
                     AddChildren(number, rootNode.LeftChild);
                 }
             }
+        }
+
+        public void Start()
+        {
+            NumberOfAdds();
+            DisplayList();
+            NodeTreeRoot();
+            ChooseANumber();
         }
     }
 }
