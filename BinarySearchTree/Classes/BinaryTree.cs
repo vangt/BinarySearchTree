@@ -88,6 +88,23 @@ namespace BinarySearchTree.Classes
 
         public void CheckList(int number)
         {
+            for(int i = 0; i < numbers.Count; i++)
+            {
+                if(number == numbers[i])
+                {
+                    Console.WriteLine("That number is in there.");
+                    SearchTree(number);
+                }
+                else if(number != numbers[Count - 1])
+                {
+                    Console.WriteLine("That number is not in the list.");
+                    ChooseANumber();
+                }
+            }
+        }
+
+        public void SearchTree(int number)
+        {
 
         }
 
