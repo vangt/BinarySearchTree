@@ -68,6 +68,29 @@ namespace BinarySearchTree.Classes
             Console.ReadLine();
         }
 
+        public void ChooseANumber()
+        {
+            int num = 0;
+
+            try
+            {
+                Console.WriteLine("Please choose a number from the list above.");
+                num = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please enter numbers only.");
+                ChooseANumber();
+            }
+
+            CheckList(num);
+        }
+
+        public void CheckList(int number)
+        {
+
+        }
+
         public void NodeTreeRoot()
         {
             Root();
@@ -78,7 +101,7 @@ namespace BinarySearchTree.Classes
         {
             for(int i = 1; i < numbers.Count; i++)
             {
-                AddChildren(numbers[i]);
+                AddChildren(numbers[i], rootNode);
             }
         }
 
