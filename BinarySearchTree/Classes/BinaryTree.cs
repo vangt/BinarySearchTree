@@ -90,7 +90,7 @@ namespace BinarySearchTree.Classes
             }
         }
 
-        public void AddChildren(int number)
+        public void AddChildren(int number, Node rootNode)
         {
             if(number > rootNode.Number)
             {
@@ -98,12 +98,20 @@ namespace BinarySearchTree.Classes
                 {
                     rootNode.RightChild.Number = number;
                 }
+                else if(rootNode.RightChild != null)
+                {
+                    AddChildren(number, rootNode.RightChild);
+                }
             }
             else if(number < rootNode.Number)
             {
                 if(rootNode.LeftChild == null)
                 {
                     rootNode.LeftChild.Number = number;
+                }
+                else if (rootNode.LeftChild != null)
+                {
+                    AddChildren(number, rootNode.LeftChild);
                 }
             }
         }
