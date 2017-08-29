@@ -66,11 +66,11 @@ namespace BinarySearchTree.Classes
 
         public void DisplayList()
         {
-            Console.WriteLine("The list of numbers to choose from:");
-            foreach(int i in numbers)
-            {
-                Console.WriteLine(i + "  ");
-            }
+            Console.WriteLine("The list of numbers to choose from is between 1 to 100.");
+            //foreach(int i in numbers)
+            //{
+            //    Console.WriteLine(i + "  ");
+            //}
             Console.ReadLine();
         }
 
@@ -96,7 +96,7 @@ namespace BinarySearchTree.Classes
         {
             if(number == node.Number)
             {
-                Console.WriteLine("You found your node!");
+                Console.WriteLine("We found your number!");
                 Console.ReadLine();
             }
             else if(number > node.Number)
