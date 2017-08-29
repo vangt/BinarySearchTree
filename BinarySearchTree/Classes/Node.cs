@@ -42,5 +42,17 @@ namespace BinarySearchTree.Classes
                 this.rightChild = value;
             }
         }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+            set
+            {
+                this.number = value;
+            }
+        }
     }
 }

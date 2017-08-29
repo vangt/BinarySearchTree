@@ -68,11 +68,10 @@ namespace BinarySearchTree.Classes
             Console.ReadLine();
         }
 
-        public void NodeTreeRoot(int number)
+        public void NodeTreeRoot()
         {
-            Node newNode = new Node();
-            newNode.Number = number;
-            newNode.Number = rootNode.Number;
+            Root();
+            Begin();
         }
 
         public void Begin()
@@ -83,19 +82,17 @@ namespace BinarySearchTree.Classes
             }
         }
 
-        public void AddChildren(int number)
+        public void Root()
         {
-            Node node = new Node();
-            Node temp = new Node();
-            int count = numbers.Count;
-
-            node = rootNode;
-            
             if(rootNode == null)
             {
-                rootNode = new Node();
+                rootNode = new Node(numbers[0]);
             }
-            node.Number = temp.Number;
+        }
+
+        public void AddChildren(int number)
+        {
+
         }
     }
 }
