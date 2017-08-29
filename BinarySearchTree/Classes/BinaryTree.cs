@@ -87,27 +87,13 @@ namespace BinarySearchTree.Classes
         {
             Node node = new Node();
             Node temp = new Node();
+            int count = numbers.Count;
 
             node = rootNode;
-            while (node.LeftChild != null || node.RightChild != null)
+            
+            if(rootNode == null)
             {
-                if (temp.Number > node.Number && node.RightChild != null)
-                {
-                    node.RightChild = node;
-                }
-                else if (temp.Number < node.Number && node.LeftChild != null) 
-                {
-                    node.LeftChild = node;
-                }
-                else if(temp.Number > node.Number && node.RightChild == null)
-                {
-                    break;
-                }
-                else if(temp.Number < node.Number && node.LeftChild == null)
-                {
-                    break;
-                }
-
+                rootNode = new Node();
             }
             node.Number = temp.Number;
         }
