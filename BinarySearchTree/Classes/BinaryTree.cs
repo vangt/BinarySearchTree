@@ -153,7 +153,7 @@ namespace BinarySearchTree.Classes
             {
                 if(rootNode.RightChild == null)
                 {
-                    rootNode.RightChild.Number = number;
+                    rootNode.RightChild = new Node(number);
                 }
                 else if(rootNode.RightChild != null)
                 {
@@ -164,7 +164,7 @@ namespace BinarySearchTree.Classes
             {
                 if(rootNode.LeftChild == null)
                 {
-                    rootNode.LeftChild.Number = number;
+                    rootNode.LeftChild = new Node(number);
                 }
                 else if (rootNode.LeftChild != null)
                 {
