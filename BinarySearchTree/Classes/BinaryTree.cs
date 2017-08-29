@@ -93,7 +93,7 @@ namespace BinarySearchTree.Classes
                 if(number == numbers[i])
                 {
                     Console.WriteLine("That number is in there.");
-                    SearchTree(number);
+                    SearchTree(number, rootNode);
                 }
                 else if(number != numbers[Count - 1])
                 {
@@ -103,9 +103,21 @@ namespace BinarySearchTree.Classes
             }
         }
 
-        public void SearchTree(int number)
+        public void SearchTree(int number, Node node)
         {
-
+            if(number == node.Number)
+            {
+                Console.WriteLine("You found your node!");
+                Console.ReadLine();
+            }
+            else if(number > node.Number)
+            {
+                SearchTree(number, node.RightChild);
+            }
+            else if(number < node.Number)
+            {
+                SearchTree(number, node.LeftChild);
+            }
         }
 
         public void NodeTreeRoot()
